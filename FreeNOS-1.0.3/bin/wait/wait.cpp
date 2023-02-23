@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ProcessClient.h>
 #include "wait.h"
 
 Wait::Wait(int argc, char **argv) 
