@@ -4,40 +4,39 @@
 #include <POSIXApplication.h>
 
 /**
- *  * @addtogroup bin
- *   * @{
- *    */
+ * @addtogroup bin
+ * @{
+ */
 
 /**
- *  * Wait.
- *   */
-class Wait : public POSIXApplication
-{
-	  public:
+ * Wait for a process to finish before starting another.
+ */
+class Wait : public POSIXApplication {
+    public:
 
-		      /**
-		       *      * Constructor
-		       *           *
-		       *                * @param argc Argument count
-		       *                     * @param argv Argument values
-		       *                          */
-		      Wait(int argc, char **argv);
+        /**
+         * Constructor
+         *
+         * @param argc Argument count
+         * @param argv Argument values
+         */
+        Wait(int argc, char **argv);
 
-		          /**
-			   *      * Destructor
-			   *           */
-		          virtual ~Wait();
+        /**
+         * Destructor
+         */
+        virtual ~Wait();
 
-			      /**
-			       *      * Execute the application.
-			       *           *
-			       *                * @return Result code
-			       *                     */
-			      virtual Result exec();
+        /**
+         * Execute the application.
+         *
+         * @return Result code
+         */
+        virtual Result exec();
 };
 
 /**
- *  * @}
- *   */
+ * @}
+ */
 
 #endif /* __BIN_WAIT_WAIT_H */
