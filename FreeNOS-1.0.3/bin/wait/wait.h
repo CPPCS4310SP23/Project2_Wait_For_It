@@ -3,7 +3,6 @@
 
 #include <POSIXApplication.h>
 
-<<<<<<< HEAD
 // Used the same implmentation of other header files in the bin.
 
 /**
@@ -73,7 +72,6 @@ class Wait : public POSIXApplication {
 };
 
 /**
->>>>>>> a2a5830ca25b7dba41d3a1ce69440ff5d2f4d6e2
  * @}
  */
 
