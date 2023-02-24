@@ -3,41 +3,42 @@
 
 #include <POSIXApplication.h>
 
-/**
- *  * @addtogroup bin
- *   * @{
- *    */
+// Used the same implmentation of other header files in the bin.
 
 /**
- *  * Wait.
- *   */
+ * @addtogroup bin
+ * @{
+ */
+
+/**
+ * Wait implementation that suspends a process until the state is changed.
+ */
 class Wait : public POSIXApplication
 {
-	  public:
+	public:
+		/**
+		 * Constructor
+		 *
+		 * @param argc Argument count
+		 * @param argv Argument values
+		 */
+		Wait(int argc, char **argv);
 
-		      /**
-		       *      * Constructor
-		       *           *
-		       *                * @param argc Argument count
-		       *                     * @param argv Argument values
-		       *                          */
-		      Wait(int argc, char **argv);
+		/**
+		 * Destructor
+		 */
+		virtual ~Wait();
 
-		          /**
-			   *      * Destructor
-			   *           */
-		          virtual ~Wait();
-
-			      /**
-			       *      * Execute the application.
-			       *           *
-			       *                * @return Result code
-			       *                     */
-			      virtual Result exec();
+		/**
+		* Execute the application.
+		*
+		* @return Result code
+		*/
+		virtual Result exec();
 };
 
-/**
- *  * @}
- *   */
+/*
+ * @}
+ */
 
 #endif /* __BIN_WAIT_WAIT_H */
