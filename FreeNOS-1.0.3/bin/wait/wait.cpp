@@ -12,8 +12,8 @@
 Wait::Wait(int argc, char **argv) 
 	: POSIXApplication(argc,argv)
 {
-	parser().setDescription("Interrupts the process until a change in state.");
-	parser().registerPositional("PROCESS_ID", "Command that interrupts until the arguement changes the state.");
+	parser().setDescription("Interrupts current execution until a child process specified by PROCESS_ID has changed state");
+	parser().registerPositional("PROCESS_ID", "ID of the child process to wait for");
 }
 
 Wait::~Wait()
