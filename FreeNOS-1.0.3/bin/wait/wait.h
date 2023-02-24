@@ -3,6 +3,7 @@
 
 #include <POSIXApplication.h>
 
+<<<<<<< HEAD
 // Used the same implmentation of other header files in the bin.
 
 /**
@@ -38,6 +39,41 @@ class Wait : public POSIXApplication
 };
 
 /*
+=======
+/**
+ * @addtogroup bin
+ * @{
+ */
+
+/**
+ * Wait for a process to finish before starting another.
+ */
+class Wait : public POSIXApplication {
+    public:
+
+        /**
+         * Constructor
+         *
+         * @param argc Argument count
+         * @param argv Argument values
+         */
+        Wait(int argc, char **argv);
+
+        /**
+         * Destructor
+         */
+        virtual ~Wait();
+
+        /**
+         * Execute the application.
+         *
+         * @return Result code
+         */
+        virtual Result exec();
+};
+
+/**
+>>>>>>> a2a5830ca25b7dba41d3a1ce69440ff5d2f4d6e2
  * @}
  */
 
