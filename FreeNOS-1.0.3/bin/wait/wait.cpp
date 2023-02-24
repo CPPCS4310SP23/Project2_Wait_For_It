@@ -1,9 +1,11 @@
-#include <unistd.h>
+#include "sys/wait.h"
 #include <stdio.h>
+#include <unistd.h>
+#include "wait.h"
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 #include <ProcessClient.h>
-#include "wait.h"
 
 // Used ProcessList and 
 
@@ -24,30 +26,25 @@ Wait::Result Wait::exec()
 	const ProcessClient process;
 
 	// Creating process ID
-	const ProcessID pid;
-
-	// Getting the processID
-	pid = atio(arguements().get("PROCESS_ID"));
+	const ProcessID pid = (atoi(arguments().get("PROCESS_ID")));
 
 	// Creating info object;
-	const ProcessClient::Info info;
-
-	// Creating result object;
-	const ProcessClient:: Result result;
+	ProcessClient::Info info;
 
 	// Getting info from the process using pid, and info
-	result = process.processInfo(pid, info);
-
+	const ProcessClient:: Result result = process.processInfo(pid, info);
+	
 	// Getting the process id that is being requested
-	const ProcessID current_process = arguements().get("PROCESS_ID");
+	const char* current_process = arguments().get("PROCESS_ID");
 
-	if(result != ProcessClient::Success)
+	if(result == ProcessClient::Success)
+		waitpid(pid, 0, 0);
+	else
 	{
 		// Using error implementation from MakeNode
-		ERROR("No ID detected in the process: " << current_process << "is not found");
+		ERROR("The process with ID " << current_process << " does not exist!");
 		return IOError;
 	}
-	elsewaitpid(pid, 0, 0);
 
 	return Success;
 }

@@ -1,4 +1,4 @@
-#include "Wait.h"
+#include "wait.h"
 
 // Used similar implementation in main of other commands
 
