@@ -1,7 +1,7 @@
 # >>>{Make Sure To Switch To *wait* Branch}<<<
 
 Group Members:
-  Alejandro Mora_Lopez,
+  Alejandro Mora-Lopez,
   Angel Zuniga
 
 Video Link: 
