@@ -35,6 +35,7 @@ Process::Process(ProcessID id, Address entry, bool privileged, const MemoryMap &
     m_privileged    = privileged;
     m_memoryContext = ZERO;
     m_kernelChannel = ZERO;
+    m_priority      = Default;
     MemoryBlock::set(&m_sleepTimer, 0, sizeof(m_sleepTimer));
 }
 
@@ -265,4 +266,23 @@ Process::Result Process::sleep(const Timer::Info *timer, bool ignoreWakeups)
 bool Process::operator==(Process *proc)
 {
     return proc->getID() == m_id;
+}
+
+Process::Priority Process::getPriority()
+{
+    return m_priority;
+}
+
+Process::Result Process::setPriority(int priority)
+{
+    if(priority > 5)
+    {
+        if(priority < 1)
+        {
+            ERROR("INVALID PRIORITY LEVEL: " << priority);
+            return InvalidArguement;
+        }
+    }
+    m_priority = (Priority) priority;
+    return Sucess;
 }
