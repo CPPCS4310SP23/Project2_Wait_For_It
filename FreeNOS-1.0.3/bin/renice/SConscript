@@ -1,0 +1,9 @@
+Import('build_env')
+
+env = build_env.Clone()
+env.UseLibraries([ 'libposix', 'liballoc', 'libstd', 'libarch',
+                   'libexec', 'libipc', 'libruntime', 'libapp', 'libfs' ])
+env.UseLibraries([ 'libapp', 'libarch', 'libstd', 'libipc', 'rt' ], 'host')
+
+env.UseServers(['filesystem'])
+env.TargetProgram('renice', Glob('*.cpp'), env['bin'])
