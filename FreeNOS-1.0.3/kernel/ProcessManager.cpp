@@ -421,3 +421,33 @@ ProcessManager::Result ProcessManager::dequeueProcess(Process *proc, const bool 
 
     return Success;
 }
+
+ProcessManager::Result ProcessManager::changePriority(Process *proc, int priority) 
+{
+    if(proc->getState() == Process::Ready) 
+    {
+        if(m_scheduler->dequeue(proc, true) != Scheduler::Success)
+        {
+            FATAL("process ID " << proc->getID() << " not removed from Scheduler");
+        }
+
+        if(proc->setPriority(priority) != Process::Success)
+        {
+            FATAL("unable to change priority of process ID " << proc->getID());
+        }
+
+        if(m_scheduler->enqueue(proc, false) != Scheduler::Success)
+        {
+            FATAL("process ID " << proc->getID() << " not added to Scheduler");
+        }
+    } 
+    else 
+    {
+        if(proc->setPriority(priority) != Process::Success)
+        {
+            FATAL("unable to change priority of process ID " << proc->getID());
+        }
+    }
+
+    return Success;
+}

@@ -203,6 +203,14 @@ class ProcessManager
     void setIdle(Process *proc);
 
     /**
+     * Change the priority level of a given process
+     * @param proc Process pointer
+     * @param priority Desired priority level
+     * @return Result code
+    */
+    Result changePriority(Process *proc, int priority);
+
+    /**
      * Current process running. NULL if no process running yet.
      *
      * @return Process pointer

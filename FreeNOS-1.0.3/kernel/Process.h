@@ -71,6 +71,13 @@ class Process
         Stopped
     };
 
+    enum Priority
+    {
+      Min = 1,
+      Default = 3,
+      Max = 5
+    };
+
   public:
 
     /**
@@ -148,6 +155,18 @@ class Process
      * @return True if equal, false otherwise.
      */
     bool operator == (Process *proc);
+
+    /**
+     * Retrieve the priority level of a process
+     * @return Priority level
+    */
+    Priority getPriority();
+
+    /**
+     * Set the priority level of a process
+     * @param priority The desired priority level
+    */
+    Result setPriority(int priority);
 
   protected:
 
@@ -285,6 +304,9 @@ class Process
 
     /** Channel for sending kernel events to the Process */
     MemoryChannel *m_kernelChannel;
+
+    /** Process Priority */
+    Priority m_priority;
 };
 
 /**
