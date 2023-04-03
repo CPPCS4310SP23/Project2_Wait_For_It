@@ -132,7 +132,7 @@ API::Result ProcessCtlHandler(const ProcessID procID,
         break;
 
     case InfoPID:
-        info->parent = proc->getPriority();
+        info->priority = proc->getPriority();
         info->id    = proc->getID();
         info->state = proc->getState();
         info->parent = proc->getParent();
