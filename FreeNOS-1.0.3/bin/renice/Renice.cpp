@@ -44,6 +44,7 @@ Renice::Result Renice::exec()
 			return InvalidArgument;
 		}
 
+		renicepid(pid, priority, 0, 0);
 		printf("The process of ID %d has been set to priority level %d.", pid, priority);
 
 	}
