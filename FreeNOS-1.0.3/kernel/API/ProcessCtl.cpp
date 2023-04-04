@@ -156,6 +156,11 @@ API::Result ProcessCtlHandler(const ProcessID procID,
         // return value and the process exit status is stored in the upper 16 bits.
         return (API::Result) ((API::Success) | (procs->current()->getWaitResult() << 16));
 
+    case RenicePID:
+	procs->changePriority(proc, addr);
+	procs->schedule();
+	break;
+
     case InfoTimer:
         if (!(timer = Kernel::instance()->getTimer()))
             return API::NotFound;
