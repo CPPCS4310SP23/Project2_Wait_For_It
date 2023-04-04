@@ -42,7 +42,7 @@ class Scheduler
      */
     enum Result
     {
-        Success,
+        Success = 0, //previous version is not equal to zero
         InvalidArgument
     };
 
@@ -90,7 +90,9 @@ class Scheduler
   private:
 
     /** Contains processes ready to run */
-    Queue<Process *, MAX_PROCS> m_queue;
+    //Queue<Process *, MAX_PROCS> m_queue; 
+    Queue<Process*> m_queues[5];
+    int m_current_priority;
 };
 
 /**
