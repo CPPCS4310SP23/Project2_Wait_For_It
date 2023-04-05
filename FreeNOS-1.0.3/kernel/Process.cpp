@@ -273,7 +273,7 @@ Process::Priority Process::getPriority()
     return m_priority;
 }
 
-Process::Result Process::setPriority(int priority)
+Process::Result Process::setPriority(u8 priority)
 {
     if(priority < 1 || priority > 5)
     {

@@ -157,9 +157,9 @@ API::Result ProcessCtlHandler(const ProcessID procID,
         return (API::Result) ((API::Success) | (procs->current()->getWaitResult() << 16));
 
     case RenicePID:
-	procs->changePriority(proc, addr);
-	procs->schedule();
-	break;
+        procs->changePriority(proc, addr);
+        procs->schedule();
+        break;
 
     case InfoTimer:
         if (!(timer = Kernel::instance()->getTimer()))
@@ -209,6 +209,7 @@ Log & operator << (Log &log, ProcessOperation op)
         case Schedule:  log.append("Schedule"); break;
         case Wakeup:    log.append("Wakeup"); break;
         case GetPriority:   log.append("GetPriority"); break;
+        case RenicePID:     log.append("RenicePID"); break;
         default:        log.append("???"); break;
     }
     return log;

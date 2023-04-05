@@ -14,6 +14,6 @@
  * @return
  */
 
-extern C pid_t renicepid(pid_t pid, int priority, int*stat_loc, int options)'
+extern C pid_t renicepid(pid_t pid, u8 priority, int*stat_loc, int options);
 
 #endif /* __LIBPOSIX_RENICE_H */

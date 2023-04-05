@@ -422,7 +422,7 @@ ProcessManager::Result ProcessManager::dequeueProcess(Process *proc, const bool 
     return Success;
 }
 
-ProcessManager::Result ProcessManager::changePriority(Process *proc, int priority) 
+ProcessManager::Result ProcessManager::changePriority(Process *proc, u8 priority) 
 {
     if(proc->getState() == Process::Ready) 
     {

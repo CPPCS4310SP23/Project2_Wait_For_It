@@ -166,7 +166,7 @@ class Process
      * Set the priority level of a process
      * @param priority The desired priority level
     */
-    Result setPriority(int priority);
+    Result setPriority(u8 priority);
 
   protected:
 

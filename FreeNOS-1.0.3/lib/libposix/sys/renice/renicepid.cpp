@@ -5,7 +5,7 @@
 
 //Copied the same pid as the wait command in libposix
 
-pid_t renicepid(pid_t pid, int priority, int *stat_loc, int options)
+pid_t renicepid(pid_t pid, u8 priority, int *stat_loc, int options)
 {
 	const ulong result = (ulong) ProcessCtl(pid, RenicePID, priority);
 
@@ -15,9 +15,9 @@ pid_t renicepid(pid_t pid, int priority, int *stat_loc, int options)
 			errno = ESRCH;
 			return (pid_t) -1;
 		case API::Success:
-			If(stat_loc)
+			if(stat_loc)
 			{
-				*stat_loc = >> 16;
+				*stat_loc = result >> 16;
 			}
 			return pid;
 		default:

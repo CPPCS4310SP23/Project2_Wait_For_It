@@ -208,7 +208,7 @@ class ProcessManager
      * @param priority Desired priority level
      * @return Result code
     */
-    Result changePriority(Process *proc, int priority);
+    Result changePriority(Process *proc, u8 priority);
 
     /**
      * Current process running. NULL if no process running yet.

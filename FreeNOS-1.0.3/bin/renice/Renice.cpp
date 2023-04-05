@@ -1,3 +1,4 @@
+#include "sys/renice.h"
 #include <stdio.h>
 #include <unistd.h>
 #include "Renice.h"
@@ -27,7 +28,7 @@ Renice::Result Renice::exec()
 	{
 		const ProcessClient process;
 		ProcessClient::Info info;
-		int priority = (atoi(arguments().get("PRIORITY")));
+		u8 priority = (atoi(arguments().get("PRIORITY")));
 		ProcessID pid = (atoi(arguments().get("PROCESS_ID")));
 
 		const ProcessClient::Result result = process.processInfo(pid, info);
@@ -37,15 +38,15 @@ Renice::Result Renice::exec()
 			ERROR("The process with ID" << pid << " does not exist!");
 			return InvalidArgument;
 		}
-
+		
 		if(priority < 1 || priority > 5)
 		{
 			ERROR("The priority level must be between 1 and 5!");
 			return InvalidArgument;
 		}
 
-		renicepid(pid, priority, 0, 0);
-		printf("The process of ID %d has been set to priority level %d.", pid, priority);
+		const API::Result result2 = ProcessCtl(pid, RenicePID, priority);
+		printf("The process of ID %d has been set to priority level %d.\n", pid, priority);
 
 	}
 
