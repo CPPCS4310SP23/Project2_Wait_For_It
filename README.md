@@ -4,5 +4,5 @@ Group Members:
   Alejandro Mora-Lopez,
   Angel Zuniga
 
-Wait Command Video: https://youtu.be/h8cVX5NaX7E
-Priority Command Video: 
+* Wait Command Video: https://youtu.be/h8cVX5NaX7E
+* Priority Command Video: 
