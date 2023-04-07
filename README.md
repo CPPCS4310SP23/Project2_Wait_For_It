@@ -1,3 +1,8 @@
+# Renice Command Implementation
+
 Group Members:
-  Alejandro Mora_lopez
+  Alejandro Mora-Lopez
   Angel Zuniga
+
+
+Video Link: 
