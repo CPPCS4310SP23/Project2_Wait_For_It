@@ -5,7 +5,7 @@ Group Members:
   Angel Zuniga
 
 * Wait Command Video: https://youtu.be/h8cVX5NaX7E
-* Priority Command Video: 
+* Priority Command Video: https://youtu.be/boIz46NIDGc
 
 ## Contents of Branches
 * `master` - base version of FreeNOS --> wait command and renice command/priority levels not implemented
@@ -19,4 +19,6 @@ Group Members:
     - Implemented the changing of the priority level of a process by ProcessManager
     - Fixed multiple bugs which caused FreeNOS to not run properly
   - Angel Zuniga
-    - 
+    - Changed ps application
+    - Implemented the priority based scheduling witht he help of other team member
+    
