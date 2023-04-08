@@ -20,4 +20,4 @@ Group Members:
     - Fixed multiple bugs which caused FreeNOS to not run properly
   - Angel Zuniga
     - Changed ps application
-    - Implemented the priority based scheduling with the count function in Scheduler    
+    - Changed Scheduler to use priority based scheduling   
